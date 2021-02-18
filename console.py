@@ -35,9 +35,8 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_create(self, args):
-        """ creates a new instance of BaseModel, saves it to json,
-            &prints the id
-        """
+        """Creates a new instance of BaseModel, saves it to Json,\
+        and prints the id"""
         argv = args.split()
         if len(argv) == 0:
             print("** class name missing **")
@@ -48,11 +47,10 @@ class HBNBCommand(cmd.Cmd):
             instance.save()
             print(instance.id)
 
-    def do_show(self, line):
-        """ prints str representation of an instance based on the class
-        name and id
-        """
-        argv = line.split()
+    def do_show(self, args):
+        """Prints the string representation of an instance, \
+        based on the class name and id"""
+        argv = args.split()
         if len(argv) == 0:
             print('** class name missing **')
         elif argv[0] not in self.isClass:
@@ -68,9 +66,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, args):
-        """ deletes an instance based on the class name and id,
-            but saves the changes in JSON file
-        """
+        """Deletes an instance based on the class name and id,\
+        but saves the changes in JSON file"""
         argv = args.split()
         if len(argv) == 0:
             print('** class name missing **')
@@ -88,25 +85,19 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_all(self, args):
-        """"prints all str representation of all instances based or not
-            on the class name
-        """
+        """Prints all str representation of all instances,\
+        based or not on the class name"""
+        argv = args.split()
         showme = storage.all()
-        objs_list = []
-        if not args:
-            for key, obj in showme.items():
-                objs_list.append(str(obj))
-            print(objs_list)
+        if (len(argv) == 0) or (argv[0] in self.isClass):
+            print(showme)
         else:
-            argv = args.split()
-            if argv[0] not in self.isClass:
-                print("** class doesn't exist **")
-            else:
-                for key, obj in showme.items():
-                    instance = obj.to_dict()
-                    if instance['__class__'] == argv[0]:
-                        objs_list.append(str(showme[key]))
-                print(objs_list)
+            print("** class doesn't exist **")
+               # for key, obj in showme.items():
+                #    instance = obj.to_dict()
+                 #   if instance['__class__'] == argv[0]:
+                  #      objs_list.append(str(showme[key]))
+              #  print(objs_list)
 
     def do_update(self, args):
         """ updates instance based on the class name and id by adding or
