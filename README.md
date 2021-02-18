@@ -58,25 +58,45 @@ Usage
 This interpreter has basic console commands such as EOF, quit, help, create, destroy, update, show, count and all.
 
 Command Sytax and Usage:
+
 Command	Syntax	  Output
+
 help	help *[option]*	Lists all available commands, or displays what option does
+
 quit	quit Exit command interpreter
+
 EOF	EOF  Exit command interpreter
+
 create	create [class_name]	Creates an instance of class_name
+
 update	update [class_name] [object_id] [update_key] [update_value]	Updates the key:value of class_name.object_id instance
+
 show	show [class_name] [object_id]	Displays all attributes of class_name.object_id
+
 all	all [class_name], all		Displays every instance of class_name, if used without option displays every instance saved to the file
+
 destroy	destroy [class_name] [object_id] or	 Deletes all attributes of class_name.object_id
+
 Files
+
 File Name	Description
+
 models/base_model.py	Base Class with public instance attributes and methods
+
 models/amenity.py	An Amenity class that inherits from BaseModel
+
 models/city.py		A City class that inherits from BaseModel
+
 models/place.py		A Place class that inherits from BaseModel
+
 models/review.py	A Review class that inherits from BaseModel
+
 models/state.py		A State class that inherits from BaseModel
+
 models/user.py		A User class that inherits from BaseModel
+
 models/engine/file_storage.py  A class that serializes instances to a JSON file and deserializes JSON file to instances
+
 tests/test_models/	       Unittests for BaseModel, User, amenity, city, place, review, state, and FileStorage
 
 
