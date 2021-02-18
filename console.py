@@ -23,16 +23,16 @@ class HBNBCommand(cmd.Cmd):
                "Review", "State", "Place"}
 
     def do_quit(self, args):
-        """Exit the program """
+        """Exits the program"""
         return True
 
     def do_EOF(self, args):
-        """ exit the program """
+        """Exits the program"""
         return True
 
     def emptyline(self):
-        """dosent execute when line is empty"""
-        pass
+        """Doesn't execute anything when line is empty"""
+        return False
 
     def do_create(self, args):
         """ creates a new instance of BaseModel, saves it to json,
