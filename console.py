@@ -93,16 +93,10 @@ class HBNBCommand(cmd.Cmd):
             print(showme)
         else:
             print("** class doesn't exist **")
-               # for key, obj in showme.items():
-                #    instance = obj.to_dict()
-                 #   if instance['__class__'] == argv[0]:
-                  #      objs_list.append(str(showme[key]))
-              #  print(objs_list)
 
     def do_update(self, args):
-        """ updates instance based on the class name and id by adding or
-            updating attribute
-        """
+        """Updates an instance based on the class name and id by adding \
+        or updating attribute, and saves the change in Json file"""
         argv = args.split()
         if len(argv) == 0:
             print("** class name missing **")
@@ -122,7 +116,6 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
             else:
                 print("** no instance found **")
-
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
