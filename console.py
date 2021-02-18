@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Console for Holberton HBNB project
-"""
+"""Console for Holberton HBNB project"""
 
 
 import cmd
@@ -19,13 +17,14 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
+    """Contains de entry point of the HBNB console"""
     prompt = '(hbnb) '
     isClass = {"BaseModel", "User", "City", "Amenity",
                "Review", "State", "Place"}
 
     def do_quit(self, args):
-        """ exit the program """
-        exit()
+        """Exit the program """
+        return True
 
     def do_EOF(self, args):
         """ exit the program """
