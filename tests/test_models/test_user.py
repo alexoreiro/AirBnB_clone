@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-
 """Test class User"""
-
 from models.base_model import BaseModel
 from models.user import User
 from datetime import datetime
@@ -9,7 +7,7 @@ import uuid
 import unittest
 
 
-class Testuser(unittest.TestCase):
+class TestUser(unittest.TestCase):
     """Tests for the User class"""
 
     def test_class_name(self):
