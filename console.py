@@ -143,6 +143,8 @@ class HBNBCommand(cmd.Cmd):
             if argv[0] in self.isClass:
                 if argv[1] == 'all':
                     self.do_all(argv[0])
+                elif argv[1] == 'count':
+                    self.do_count(argv[0])
         except:
             pass
 
