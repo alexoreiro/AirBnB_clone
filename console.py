@@ -135,16 +135,29 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, args):
         """For when you call Class.command"""
-        for char in args:
-            if char == '(':
-                args.replace("(", ".(")
+        # for char in args:
+        #    if char == '(':
+        #        args.replace("(", ".(")
         try:
-            argv = args.split('.')
+            arg = args.replace("(", ".(")
+            argv = arg.split('.')
             if argv[0] in self.isClass:
                 if argv[1] == 'all':
                     self.do_all(argv[0])
                 elif argv[1] == 'count':
                     self.do_count(argv[0])
+                elif argv[1] == 'show':
+                    argv[2] = argv[2].replace("(", "")
+                    argv[2] = argv[2].replace(")", "")
+                    self.do_show(argv[0] + ' ' + argv[2])
+                elif argv[1] == 'destroy':
+                    argv[2] = argv[2].replace("(", "")
+                    argv[2] = argv[2].replace(")", "")
+                    self.do_destroy(argv[0] + ' ' + argv[2])
+                else:
+                    print("** command not found **")
+            else:
+                print("** command not found **")
         except:
             pass
 
