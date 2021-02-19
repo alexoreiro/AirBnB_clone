@@ -133,5 +133,18 @@ class HBNBCommand(cmd.Cmd):
                 cont += 1
         print(cont)
 
+    def default(self, args):
+        """For when you call Class.command"""
+        for char in args:
+            if char == '(':
+                args.replace("(", ".(")
+        try:
+            argv = args.split('.')
+            if argv[0] in self.isClass:
+                if argv[1] == 'all':
+                    self.do_all(argv[0])
+        except:
+            pass
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
